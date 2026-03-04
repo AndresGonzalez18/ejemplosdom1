@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulación con JavaScript</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #caja {
+      width: 200px;
+      text-align: center;
+      border: 2px solid black;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Cambiar texto -->
+  <p id="mensaje">Texto original</p>
+
+  <!-- 2. Cambiar estilos -->
+  <div id="caja">Caja</div>
+
+  <!-- 3. Ocultar / Mostrar -->
+  <p id="texto">Este texto se puede ocultar</p>
+
+  <!-- 4. Cambiar atributo -->
+  <img id="imagen" src="cr7.jpg" width="200">
+
+  <br><br>
+
+  <!-- Botones -->
+  <button onclick="cambiarTexto()">Cambiar texto</button>
+  <button onclick="cambiarEstilos()">Cambiar estilos</button>
+  <button onclick="ocultarMostrar()">Ocultar / Mostrar</button>
+  <button onclick="cambiarImagen()">Cambiar imagen</button>
+  <button onclick="agregarElemento()">Agregar elemento</button>
+
+  <ul id="lista"></ul>
+
+  <script>
+    function cambiarTexto() {
+      document.getElementById("mensaje").innerText =
+        "Texto cambiado con JavaScript";
+    }
+
+    function cambiarEstilos() {
+      const caja = document.getElementById("caja");
+      caja.style.backgroundColor = "blue";
+      caja.style.color = "white";
+      caja.style.padding = "20px";
+    }
+
+    let visible = true;
+    function ocultarMostrar() {
+      const texto = document.getElementById("texto");
+      texto.style.display = visible ? "none" : "block";
+      visible = !visible;
+    }
+
+    function cambiarImagen() {
+      document.getElementById("imagen").src = "imagen2.jpg";
+    }
+
+    function agregarElemento() {
+      const li = document.createElement("li");
+      li.innerText = "Elemento agregado dinámicamente";
+      document.getElementById("lista").appendChild(li);
+    }
+  </script>
+
+</body>
+</html>
